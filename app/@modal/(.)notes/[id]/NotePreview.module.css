@@ -1,0 +1,20 @@
+.notePreviewContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+
+  width: 100%;
+}
+
+.noteDate {
+  align-self: flex-end;
+}
+
+.goBackBtn {
+  padding: 6px 10px;
+  background-color: rgb(233, 250, 255);
+  border: 1px solid gray;
+  border-radius: 6px;
+}
