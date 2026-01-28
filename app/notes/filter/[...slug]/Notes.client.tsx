@@ -61,7 +61,7 @@ export default function NotesPage({
           ) : null}
 
           <div className={css.button}>
-            <Link href="/notes/actions/create">Create note +</Link>
+            <Link href="/notes/action/create">Create note +</Link>
           </div>
         </header>
         <div className={css.contentContainer}>
