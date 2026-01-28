@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "All notes list page",
 };
 
-export function Notes() {
+export default function Notes() {
   redirect("/notes/filter/all");
 
   return null;
