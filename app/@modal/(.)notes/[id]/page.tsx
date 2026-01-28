@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import {
   QueryClient,
   HydrationBoundary,
@@ -9,6 +10,40 @@ import NotesPreview from "./NotePreview.client";
 
 interface NotePreviewProps {
   params: Promise<{ id: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: NotePreviewProps): Promise<Metadata> {
+  const { id } = await params;
+  const note = await fetchSingleNoteById(id);
+
+  return {
+    title: `Note: ${note.title}`,
+    description: note.content.slice(0, 30),
+    alternates: { canonical: `https:notehub.com/notes/${note.id}` },
+    openGraph: {
+      title: `Note: ${note.title}`,
+      description: note.content.slice(0, 100),
+      url: `https:notehub.com/notes/${note.id}`,
+      siteName: "NoteHub",
+      type: "article",
+      images: [
+        {
+          url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+          width: 1200,
+          height: 630,
+          alt: note.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `Note: ${note.title}`,
+      description: note.content.slice(0, 30),
+      images: ["https://ac.goit.global/fullstack/react/og-meta.jpg"],
+    },
+  };
 }
 
 export default async function NotePreview({ params }: NotePreviewProps) {

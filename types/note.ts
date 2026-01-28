@@ -7,7 +7,7 @@ export interface Note {
   tag: string;
 }
 
-export interface CreateNote {
+export interface CreateNotePayload {
   title: string;
   content: string;
   tag: string;

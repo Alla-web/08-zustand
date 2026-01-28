@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { Note, CreateNote } from "@/types/note";
+import type { Note, CreateNotePayload } from "@/types/note";
 import { log } from "console";
 
 export interface FetchNotesResponse {
@@ -40,7 +40,7 @@ export async function fetchNotes(
   return response.data;
 }
 
-export async function createNote(payload: CreateNote): Promise<Note> {
+export async function createNote(payload: CreateNotePayload): Promise<Note> {
   const response = await axios.post<Note>("/notes", payload, {
     headers: {
       Authorization: `Bearer ${TOKEN}`,

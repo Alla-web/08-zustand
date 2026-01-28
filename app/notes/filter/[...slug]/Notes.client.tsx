@@ -15,6 +15,7 @@ import NoteForm from "@/components/NoteForm/NoteForm";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import ErrorBox from "@/components/ErrorBox/ErrorBox";
 import Loader from "@/components/Loader/Loader";
+import Link from "next/link";
 
 interface NotesPageProps {
   initialPage: number;
@@ -59,29 +60,16 @@ export default function NotesPage({
             />
           ) : null}
 
-          <button onClick={() => setIsModalOpen(true)} className={css.button}>
-            Create note +
-          </button>
+          <div className={css.button}>
+            <Link href="/notes/actions/create">Create note +</Link>
+          </div>
         </header>
         <div className={css.contentContainer}>
           {isLoading && <Loader />}
 
           {data && !isLoading && <NoteList notes={data.notes} />}
 
-          {isRefetching && !isLoading && (
-            <Modal onClose={() => setIsModalOpen(false)}>
-              <Loader />
-            </Modal>
-          )}
-
-          {isModalOpen && (
-            <Modal onClose={() => setIsModalOpen(false)}>
-              <NoteForm
-                onFormClose={() => setIsModalOpen(false)}
-                onCancelClick={() => setIsModalOpen(false)}
-              />
-            </Modal>
-          )}
+          {isRefetching && !isLoading && <Loader />}
 
           {!isError && !isLoading && !data?.notes?.length && !isLoading && (
             <ErrorBox query={debauncedSearch} />
