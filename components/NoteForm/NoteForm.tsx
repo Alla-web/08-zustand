@@ -52,8 +52,6 @@ export default function NoteForm() {
     },
   });
 
-  console.log("draft from store:", draft);
-
   const handleChange = (
     event: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
