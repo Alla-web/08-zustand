@@ -48,7 +48,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+      url: "/notes/filter/all",
       siteName: "NoteHub",
       type: "article",
       images: [

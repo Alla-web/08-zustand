@@ -40,7 +40,7 @@ export default function NoteForm() {
         exact: false,
       });
       clearDraft();
-      useNoteDraftStore.persist.clearStorage();
+      // useNoteDraftStore.persist.clearStorage();
       close();
     },
     onError: (error: unknown) => {
@@ -91,7 +91,7 @@ export default function NoteForm() {
               name="title"
               className={css.input}
               onChange={handleChange}
-              defaultValue={startValues.title}
+              value={startValues.title}
             />
           </div>
 
@@ -103,7 +103,7 @@ export default function NoteForm() {
               rows={8}
               className={css.textarea}
               onChange={handleChange}
-              defaultValue={startValues.content}
+              value={startValues.content}
             />
           </div>
 
@@ -114,7 +114,7 @@ export default function NoteForm() {
               name="tag"
               className={css.select}
               onChange={handleChange}
-              defaultValue={startValues.tag}
+              value={startValues.tag}
             >
               <option value="" disabled>
                 -- Select tag --

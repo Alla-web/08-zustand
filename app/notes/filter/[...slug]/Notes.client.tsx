@@ -29,7 +29,6 @@ export default function NotesPage({
   tag,
 }: NotesPageProps) {
   const [page, setPage] = useState(initialPage);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [search, setSearch] = useState(initialSearch);
   const [debauncedSearch] = useDebounceValue(search, 1000);
 

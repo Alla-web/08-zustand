@@ -12,7 +12,7 @@ interface NoteDraftStore {
 export const initialDraft: CreateNotePayload = {
   title: "",
   content: "",
-  tag: "",
+  tag: "Todo",
 };
 
 export const useNoteDraftStore = create<NoteDraftStore>()(
